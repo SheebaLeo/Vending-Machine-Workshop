@@ -45,6 +45,9 @@ public class VendingMachineImpl implements VendingMachine {
                 depositPool = depositPool - (int) product.getPrice();
                 return product;
             }
+            if(product.getPrice() > depositPool){
+                throw new IllegalArgumentException("Balance insufficient");
+            }
         }
         return null;
     }
@@ -73,7 +76,7 @@ public class VendingMachineImpl implements VendingMachine {
         String[] productStrings = new String[products.length];
         for (int i = 0; i < products.length; i++) {
 
-                productStrings[i] = "id:" + products[i].getId() + ", " + "Product Name" + products[i].getProductName() +
+                productStrings[i] = "id:" + products[i].getId() + ", " + "Product Name: " + products[i].getProductName() +
                         "Price" + ", " + products[i].getPrice();
             }
         return productStrings;

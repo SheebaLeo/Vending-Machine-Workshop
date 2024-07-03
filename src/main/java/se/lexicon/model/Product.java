@@ -3,9 +3,7 @@ package se.lexicon.model;
 public abstract class Product {
 
     private int id;
-
     private double price;
-
     private String productName;
 
     public Product (int id, double price, String productName) {
